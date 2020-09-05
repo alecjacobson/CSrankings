@@ -217,9 +217,15 @@ def dump_it():
             # count = authorscores[(authorName, area, year)]
             print(authorName)
             countAdjusted = authorscoresAdjusted[(authorName, area, year)]
-            f.write(authorName)
+            try:
+              f.write(authorName)
+            except:
+              f.write("authorName-encode-error")
             f.write(',')
-            f.write(facultydict[authorName])
+            try:
+              f.write(facultydict[authorName])
+            except:
+              f.write("facultydict-encode-error")
             f.write(',')
             f.write(area)
 #            f.write(',')
